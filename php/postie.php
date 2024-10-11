@@ -1,5 +1,5 @@
 <?php
-namespace SIM\MAIL_POSTING;
+namespace SIM\MAILPOSTING;
 use SIM;
 
 //Update the post

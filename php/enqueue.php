@@ -1,5 +1,5 @@
 <?php
-namespace SIM\MAIL_POSTING;
+namespace SIM\MAILPOSTING;
 use SIM;
 
 //load js and css
@@ -9,5 +9,5 @@ add_action( 'admin_enqueue_scripts', function ($hook) {
 		return;
 	}
 
-	wp_enqueue_script('sim_posting_admin', plugins_url('js/admin.min.js', __DIR__), array() , MODULE_VERSION, true);
+	wp_enqueue_script('sim_posting_admin', SIM\pathToUrl(MODULE_PATH.'js/admin.min.js'), array() , MODULE_VERSION, true);
 });
