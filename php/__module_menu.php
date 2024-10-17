@@ -9,20 +9,6 @@ DEFINE(__NAMESPACE__.'\MODULE_PATH', plugin_dir_path(__DIR__));
 //module slug is the same as grandparent folder name
 DEFINE(__NAMESPACE__.'\MODULE_SLUG', strtolower(basename(dirname(__DIR__))));
 
-add_filter('sim_submenu_description', function($description, $moduleSlug){
-	//module slug should be the same as the constant
-	if($moduleSlug != MODULE_SLUG)	{
-		return $description;
-	}
-
-	ob_start();
-	?>
-	This module depends on the <a href="wordpress.org/plugins/postie/">postie</a> plugin.<br>
-	It makes it possible to publish content via the mail.<br>
-	<?php
-
-	return ob_get_clean();
-}, 10, 2);
 
 add_filter('sim_submenu_options', function($optionsHtml, $moduleSlug, $settings){
 	//module slug should be the same as grandparent folder name
