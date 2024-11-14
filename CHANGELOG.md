@@ -4,6 +4,7 @@
 ### Added
 
 ### Changed
+- named function instead of closures
 
 ### Fixed
 
