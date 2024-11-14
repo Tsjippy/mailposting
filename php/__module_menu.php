@@ -9,8 +9,8 @@ DEFINE(__NAMESPACE__.'\MODULE_PATH', plugin_dir_path(__DIR__));
 //module slug is the same as grandparent folder name
 DEFINE(__NAMESPACE__.'\MODULE_SLUG', strtolower(basename(dirname(__DIR__))));
 
-
-add_filter('sim_submenu_options', function($optionsHtml, $moduleSlug, $settings){
+add_filter('sim_submenu_options', __NAMESPACE__.'\menuOptions', 10, 3);
+function menuOptions($optionsHtml, $moduleSlug, $settings){
 	//module slug should be the same as grandparent folder name
 	if($moduleSlug != MODULE_SLUG){
 		return $optionsHtml;
@@ -121,10 +121,11 @@ add_filter('sim_submenu_options', function($optionsHtml, $moduleSlug, $settings)
 	</div>
 	<?php
 	return ob_get_clean();
-}, 10, 3);
+}
 
 //run on module activation
-add_filter('sim_module_updated', function($options, $moduleSlug){
+add_filter('sim_module_updated', __NAMESPACE__.'\onUpdate', 10, 2);
+function onUpdate($options, $moduleSlug){
 	//module slug should be the same as grandparent folder name
 	if($moduleSlug != MODULE_SLUG){
 		return $options;
@@ -133,4 +134,4 @@ add_filter('sim_module_updated', function($options, $moduleSlug){
 	SIM\ADMIN\installPlugin('postie/postie.php');
 
 	return $options;
-}, 10, 2);
+}

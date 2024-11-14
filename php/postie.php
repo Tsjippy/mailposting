@@ -50,7 +50,8 @@ function processEmail($post, $headers) {
 	return $post;
 }
 
-add_filter('postie_post_after', function($post){
+add_filter('postie_post_after', __NAMESPACE__.'\afterPostie');
+function afterPostie($post){
 	SIM\printArray($post);
 
 	//Only send message if post is published
@@ -61,7 +62,7 @@ add_filter('postie_post_after', function($post){
 	}elseif(function_exists('SIM\FRONTENDPOSTING\sendPendingPostWarning')){
 		SIM\FRONTENDPOSTING\sendPendingPostWarning(get_post($post['ID']), false);
 	}
-});
+}
 
 function test(){
 	$post	= [
