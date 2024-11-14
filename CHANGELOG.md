@@ -4,11 +4,16 @@
 ### Added
 
 ### Changed
-- named function instead of closures
 
 ### Fixed
 
 ### Updated
+
+## [8.0.3] - 2024-11-14
+
+
+### Changed
+- named function instead of closures
 
 ## [8.0.2] - 2024-10-17
 
