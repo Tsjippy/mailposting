@@ -9,13 +9,8 @@ DEFINE(__NAMESPACE__.'\MODULE_PATH', plugin_dir_path(__DIR__));
 //module slug is the same as grandparent folder name
 DEFINE(__NAMESPACE__.'\MODULE_SLUG', strtolower(basename(dirname(__DIR__))));
 
-add_filter('sim_submenu_options', __NAMESPACE__.'\menuOptions', 10, 3);
-function menuOptions($optionsHtml, $moduleSlug, $settings){
-	//module slug should be the same as grandparent folder name
-	if($moduleSlug != MODULE_SLUG){
-		return $optionsHtml;
-	}
-
+add_filter('sim_submenu_mailposting_options', __NAMESPACE__.'\menuOptions', 10, 2);
+function menuOptions($optionsHtml, $settings){
 	if(empty($settings['category_mapper'])){
 		$categoryMapper	= [''];
 	}else{
@@ -120,7 +115,7 @@ function menuOptions($optionsHtml, $moduleSlug, $settings){
 		</div>
 	</div>
 	<?php
-	return ob_get_clean();
+	return $optionsHtml.ob_get_clean();
 }
 
 //run on module activation
