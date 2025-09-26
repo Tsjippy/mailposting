@@ -40,14 +40,14 @@ function menuOptions($optionsHtml, $settings){
     ?>
 	<div class="">
 		<h4>Give optional e-mail addresses and the categories their posts should be given:</h4>
-		<div class="clone_divs_wrapper">
+		<div class="clone-divs-wrapper">
 			<?php
 			foreach($categoryMapper as $index=>$mapper){
 				if(empty($mapper)){
 					$mapper	= [];
 				}
 				?>
-				<div class="clone_div" data-divid="<?php echo $index;?>" style="display:flex;border: #dedede solid; padding: 10px; margin-bottom: 10px;">
+				<div class="clone-div" data-divid="<?php echo $index;?>" style="display:flex;border: #dedede solid; padding: 10px; margin-bottom: 10px;">
 					<div class="multi_input_wrapper">
 						<label>
 							<h4 style='margin: 0px;'>E-mail address <?php echo $index+1;?></h4>
