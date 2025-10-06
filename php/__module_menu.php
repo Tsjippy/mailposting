@@ -48,7 +48,7 @@ function menuOptions($optionsHtml, $settings){
 				}
 				?>
 				<div class="clone-div" data-divid="<?php echo $index;?>" style="display:flex;border: #dedede solid; padding: 10px; margin-bottom: 10px;">
-					<div class="multi_input_wrapper">
+					<div class="multi-input-wrapper">
 						<label>
 							<h4 style='margin: 0px;'>E-mail address <?php echo $index+1;?></h4>
 							<input type='email' name="category_mapper[<?php echo $index;?>][email]" value='<?php echo $mapper['email'];?>'>
@@ -98,7 +98,7 @@ function menuOptions($optionsHtml, $settings){
 							}
 						?>
 					</div>
-					<div class='buttonwrapper' style='margin:auto;'>
+					<div class='button-wrapper' style='margin:auto;'>
 						<button type="button" class="add button" style="flex: 1;">+</button>
 						<?php
 						if(count($categoryMapper)> 1){
