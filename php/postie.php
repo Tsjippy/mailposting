@@ -22,7 +22,7 @@ function processEmail($post, $headers) {
 			$post['post_title'] = trim(str_replace("Fwd:", "", $subject));
 		
 			//Set the category
-			$categoryMapper	= SIM\getModuleOption(MODULE_SLUG, 'category_mapper');
+			$categoryMapper	= SIM\getModuleOption(MODULE_SLUG, 'category-mapper');
 			$email			= trim(strtolower($headers['from']['mailbox'].'@'.$headers['from']['host']));
 
 			foreach($categoryMapper as $mapper){

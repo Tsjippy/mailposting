@@ -11,10 +11,10 @@ DEFINE(__NAMESPACE__.'\MODULE_SLUG', strtolower(basename(dirname(__DIR__))));
 
 add_filter('sim_submenu_mailposting_options', __NAMESPACE__.'\menuOptions', 10, 2);
 function menuOptions($optionsHtml, $settings){
-	if(empty($settings['category_mapper'])){
+	if(empty($settings['category-mapper'])){
 		$categoryMapper	= [''];
 	}else{
-		$categoryMapper	= $settings['category_mapper'];
+		$categoryMapper	= $settings['category-mapper'];
 	}
 
 	$postTypes	= get_post_types([
@@ -51,7 +51,7 @@ function menuOptions($optionsHtml, $settings){
 					<div class="multi-input-wrapper">
 						<label>
 							<h4 style='margin: 0px;'>E-mail address <?php echo $index+1;?></h4>
-							<input type='email' name="category_mapper[<?php echo $index;?>][email]" value='<?php echo $mapper['email'];?>'>
+							<input type='email' name="category-mapper[<?php echo $index;?>][email]" value='<?php echo $mapper['email'];?>'>
 						</label>
 						<label>
 							<h4 style='margin-bottom: 0px;'>The category e-mails from this address should be mapped to</h4>
@@ -62,7 +62,7 @@ function menuOptions($optionsHtml, $settings){
 								?>
 								<div class='posttype-wrapper' data-posttype='<?php echo $postType;?>'>
 									<label>
-										<input type='checkbox' class='posttype' name='category_mapper[<?php echo $index;?>][category][]' value='<?php echo $postType;?>' <?php if(isset($mapper['category'][$postType])){echo 'checked';}?>>
+										<input type='checkbox' class='posttype' name='category-mapper[<?php echo $index;?>][category][]' value='<?php echo $postType;?>' <?php if(isset($mapper['category'][$postType])){echo 'checked';}?>>
 										<?php echo ucfirst($postType);?>
 									</label>
 
@@ -72,7 +72,7 @@ function menuOptions($optionsHtml, $settings){
 											?>
 											<div class='taxonomy-wrapper'>
 												<label>
-													<input type='checkbox' class='taxonomy' name='category_mapper[<?php echo $index;?>][category][<?php echo $postType;?>][]' value='<?php echo $taxonomy;?>' <?php if(isset($mapper['category'][$postType][$taxonomy])){echo 'checked';}?>>
+													<input type='checkbox' class='taxonomy' name='category-mapper[<?php echo $index;?>][category][<?php echo $postType;?>][]' value='<?php echo $taxonomy;?>' <?php if(isset($mapper['category'][$postType][$taxonomy])){echo 'checked';}?>>
 													<?php echo ucfirst($taxonomy);?>
 												</label>
 
@@ -81,7 +81,7 @@ function menuOptions($optionsHtml, $settings){
 													foreach($cats as $cat){
 														?>
 														<label>
-															<input type='checkbox' name='category_mapper[<?php echo $index;?>][category][<?php echo $postType;?>][<?php echo $taxonomy;?>][]' value='<?php echo $cat->term_id;?>' <?php if(isset($mapper['category'][$postType][$taxonomy]) && is_array($mapper['category'][$postType][$taxonomy]) && in_array($cat->term_id, $mapper['category'][$postType][$taxonomy])){echo 'checked';}?>>
+															<input type='checkbox' name='category-mapper[<?php echo $index;?>][category][<?php echo $postType;?>][<?php echo $taxonomy;?>][]' value='<?php echo $cat->term_id;?>' <?php if(isset($mapper['category'][$postType][$taxonomy]) && is_array($mapper['category'][$postType][$taxonomy]) && in_array($cat->term_id, $mapper['category'][$postType][$taxonomy])){echo 'checked';}?>>
 															<?php echo $cat->name;?>
 														</label>
 														<?php
